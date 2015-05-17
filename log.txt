@@ -10,3 +10,6 @@ Start: Fri, 15 May 2015 15:36:20 -0700
 End: Fri, 15 May 2015 16:32:47 -0700 
 Tasks: Finished loopback.php
 
+Start: Sat, 16 May 2015 14:00:00 -0700 
+End: Sat, 16 May 2015 19:19:24 -0700 
+Tasks: Got working login, content1 and content2

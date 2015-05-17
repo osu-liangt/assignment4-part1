@@ -22,19 +22,37 @@ else if (empty($_SESSION["login_visited"]) || $_SESSION["login_visited"] == fals
 <body>
 <?php
 
+// Case: login visited, invalid username submitted via post
+
+if (isset($_POST["username"]) && empty($_POST["username"])) {
+
+	echo "<p>A username must be entered. Click <a href=\"login.php\">here</a> to return to the login screen.</p>\n";
+
+	if (isset($_SESSION["username_entered_before"]) &&
+		$_SESSION["username_entered_before"] == true) {
+		echo "<p>However, you've entered a valid username before, so here's a <a href=\"content2.php\">link to content2.php</a>.</p>\n";
+	}
+
+}
+
 // Case: login visited, valid username submitted via post
-$case_1 =
-	isset($_POST["username"]) &&
-	!empty($_POST["username"]);
+
+// $case_1 =
+// 	isset($_POST["username"]) &&
+// 	!empty($_POST["username"]);
 
 // Case: login visited, valid username submitted previously
 // and not posting invalid username
-$case_2 =
-	isset($_SESSION["username"]) &&
-	!empty($_SESSION["username"]) &&
-	!isset($_POST["username"]);
+
+// $case_2 =
+// 	isset($_SESSION["username"]) &&
+// 	!empty($_SESSION["username"]) &&
+// 	!isset($_POST["username"]);
 	
-if ($case_1 || $case_2) {
+// ($case_1 || $case_2)
+
+else {
+
 	$_SESSION["username_entered_before"] = true;
 	if (empty($_SESSION["visted_times"])) {
 		$_SESSION["visted_times"] = 0;
@@ -49,14 +67,6 @@ if ($case_1 || $case_2) {
 	echo "<p><a href=\"content2.php\">Link to content2.php</a>\n";
 }
 
-// Case: login visited, invalid username submitted via post
-else {
-	echo "<p>A username must be entered. Click <a href=\"login.php\">here</a> to return to the login screen.</p>\n";
-	if (isset($_SESSION["username_entered_before"]) &&
-		$_SESSION["username_entered_before"] == true) {
-		echo "<p>However, you've entered a valid username before, so here's a <a href=\"content2.php\">link to content2.php</a>.</p>\n";
-	}
-}
 ?>
 </body>
 </html>
