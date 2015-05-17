@@ -40,7 +40,8 @@ if (isset($_POST["username"]) &&
 
 // $case_1 =
 // 	isset($_POST["username"]) &&
-// 	!empty($_POST["username"]);
+// 	!empty($_POST["username"]) &&
+//	!is_null($_POST["username"]);
 
 // Case: login visited, valid username submitted previously
 // and not posting invalid username
