@@ -24,7 +24,8 @@ else if (empty($_SESSION["login_visited"]) || $_SESSION["login_visited"] == fals
 
 // Case: login visited, invalid username submitted via post
 
-if (isset($_POST["username"]) && empty($_POST["username"])) {
+if (isset($_POST["username"]) &&
+		(empty($_POST["username"]) || is_null($_POST["username"]))) {
 
 	echo "<p>A username must be entered. Click <a href=\"login.php\">here</a> to return to the login screen.</p>\n";
 
@@ -63,7 +64,7 @@ else {
 		$_SESSION["username"] = $_POST["username"];
 	}
 	$username = $_SESSION["username"];
-	echo "<p>Hello $username you have visited this page $visited_times times before. Click <a href=\"content1.php?logout\">here</a> to logout.</p>\n";
+	echo "<p>Hello <strong>$username</strong> you have visited this page $visited_times times before. Click <a href=\"content1.php?logout\">here</a> to logout.</p>\n";
 	echo "<p><a href=\"content2.php\">Link to content2.php</a>\n";
 }
 
