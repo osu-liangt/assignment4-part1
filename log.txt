@@ -5,3 +5,8 @@ Tasks: Create log and multtable
 Start: Fri, 15 May 2015 13:30:00 -0700 
 End: Fri, 15 May 2015 15:36:20 -0700 
 Tasks: Finished multtable.php
+
+Start: Fri, 15 May 2015 15:36:20 -0700 
+End: Fri, 15 May 2015 16:32:47 -0700 
+Tasks: Finished loopback.php
+
