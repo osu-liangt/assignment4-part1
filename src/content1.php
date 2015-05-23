@@ -9,7 +9,11 @@ if (isset($_GET["logout"])) {
 	header('Location: login.php');
 }
 // Case: login never visited
-else if (empty($_SESSION["login_visited"]) || $_SESSION["login_visited"] == false) {
+else if (!isset($_SESSION["login_visited"]) || $_SESSION["login_visited"] == false) {
+	header('Location: login.php');
+}
+// Case: login visited, no username posted and no username previously posted
+else if (!isset($_POST["username"]) && !isset($_SESSION["username"])) {
 	header('Location: login.php');
 }
 ?>
